@@ -148,11 +148,13 @@ document.getElementById("contactForm").addEventListener("submit", async function
     alert("⚠️ Error: " + err.message);
   }
 });
- const hamburger = document.querySelector('.hamburger');
+const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
 hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
+  hamburger.classList.toggle('active'); // this line makes it turn into "X"
 });
+
   
    
