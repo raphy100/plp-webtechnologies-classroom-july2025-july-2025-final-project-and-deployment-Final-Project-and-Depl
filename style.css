@@ -661,81 +661,85 @@
 /* Existing CSS above */
 
 /* === Navbar & Hamburger Menu CSS === */
+/* === NAVIGATION & HAMBURGER FIX === */
+
+/* Container */
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background:black;
-  color:#a9b3bb(14, 14, 160);
+  background: var(--header-bg);
+  color: var(--text-color);
 }
 
+/* Desktop Nav Menu */
 .nav-menu {
-  list-style: none;
   display: flex;
   gap: 20px;
 }
 
 .nav-menu li a {
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
   font-size: 16px;
+  transition: var(--transition);
 }
 
-/* Hamburger button */
+.nav-menu li a:hover {
+  color: var(--primary-color);
+}
+
+/* Hamburger (hidden on desktop) */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  transition: 0.3s ease-in-out;
 }
 
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: white;
+  background: var(--text-color);
   border-radius: 2px;
+  transition: 0.3s ease-in-out;
 }
 
-/* Mobile styles */
+/* === Mobile Responsive === */
 @media (max-width: 768px) {
   .nav-menu {
-    display: none;
+    position: fixed;
+    top: 80px;
+    right: -100%;
     flex-direction: column;
-    background: #444;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    padding: 15px;
-    border-radius: 8px;
+    background: var(--bg-color);
+    width: 70%;
+    height: calc(100vh - 80px);
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
   }
 
+  /* Show nav when toggled */
   .nav-menu.show {
-    display: flex;
+    right: 0;
   }
 
+  .nav-menu li {
+    margin: 15px 0;
+  }
+
+  /* Show hamburger on mobile */
   .hamburger {
     display: flex;
   }
 }
-/* Hamburger base */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  transition: 0.3s ease-in-out;
-}
 
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 2px;
-  transition: 0.3s ease-in-out;
-}
-
-/* Active state (X icon) */
+/* === Hamburger Animation to X === */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }

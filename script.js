@@ -153,8 +153,15 @@ const navMenu = document.querySelector('.nav-menu');
 
 hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
-  hamburger.classList.toggle('active'); // this line makes it turn into "X"
+  hamburger.classList.toggle('active');
 });
 
-  
+// Optional: close menu when clicking a link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('show');
+    hamburger.classList.remove('active');
+  });
+});
+
    
