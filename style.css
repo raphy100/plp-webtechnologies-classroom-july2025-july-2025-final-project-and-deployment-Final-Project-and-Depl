@@ -632,3 +632,29 @@
                 align-items: center;
             }
         }
+/* Ensure header is visible on small screens */
+@media (max-width: 768px) {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  /* If hamburger JS is not ready, keep nav visible */
+  .nav-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+  }
+}
+
+/* Fix project grid on small screens */
+.projects-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
